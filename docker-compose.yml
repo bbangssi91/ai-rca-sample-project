@@ -1,0 +1,31 @@
+
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=false
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  spring-boot-app:
+    build: ./app
+    container_name: spring-boot-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - N8N_WEBHOOK_URL=http://n8n:5678/webhook/log-analysis
+    depends_on:
+      - n8n
+
+volumes:
+  n8n_data:
