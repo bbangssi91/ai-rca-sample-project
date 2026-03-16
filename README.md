@@ -4,6 +4,12 @@ Spring Boot 서비스의 장애 로그를 실시간으로 감지하고, **Gemini
 
 ---
 
+## 📸 실행 화면 (Slack Report)
+
+![AI RCA Slack Report](./images/screentshot.png)
+
+---
+
 ## 🏗️ 시스템 아키텍처
 
 ```mermaid
