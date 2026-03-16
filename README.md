@@ -10,7 +10,7 @@ Spring Boot 서비스의 장애 로그를 실시간으로 감지하고, **Gemini
 graph TD
     User((사용자)) -->|API 호출| SB[Spring Boot App]
     SB -->|장애 발생 시 Context 전송| n8n[n8n Workflow]
-    n8n -->|RCA 요청| AI [Gemini 2.5 Flash]
+    n8n -->|RCA 요청| AI[Gemini 2.5 Flash]
     AI -->|분석 결과 반환| n8n
     n8n -->|Slack Block Kit 리포트| Slack[Slack Channel]
 ```
